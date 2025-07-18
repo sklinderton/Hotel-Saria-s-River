@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saria's River – Glamping de Lujo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="overlay">
+    <header>
+      <h1>Saria's River</h1>
+      <p>Glamping exclusivo para parejas en Buenos Aires, Puntarenas</p>
+    </header>
+
+    <section class="suites">
+      <h2>Nuestras Suites</h2>
+      <div class="suite-list">
+        <div class="suite-card">
+          <img src="images/suit_monteverde.png" alt="Suite Monteverde">
+          <h3>Suite Monteverde</h3>
+          <p>$450 USD por noche (2 personas)</p>
+          <p>Incluye 3 comidas diarias</p>
+        </div>
+        <div class="suite-card">
+          <img src="images/suit_yiguirro.png" alt="Suite Yigüirro">
+          <h3>Suite Yigüirro</h3>
+          <p>$450 USD por noche (2 personas)</p>
+          <p>Incluye 3 comidas diarias</p>
+        </div>
+        <div class="suite-card">
+          <img src="images/master_suit_jaguar.png" alt="Master Suite Jaguar">
+          <h3>Master Suite Jaguar</h3>
+          <p>$900 USD por noche (2 personas)</p>
+          <p>Incluye 3 comidas + Spa</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-section">
+      <h2>Reservá tu estadía</h2>
+      <form id="reservationForm">
+        <input type="text" name="name" placeholder="Nombre completo" required>
+        <input type="email" name="email" placeholder="Correo electrónico" required>
+        <select name="suite" required>
+          <option value="" disabled selected>Seleccioná una suite</option>
+          <option value="Suite Monteverde">Suite Monteverde</option>
+          <option value="Suite Yigüirro">Suite Yigüirro</option>
+          <option value="Master Suite Jaguar">Master Suite Jaguar</option>
+        </select>
+        <input type="date" name="date" required>
+        <button type="submit">Reservar</button>
+      </form>
+    </section>
+
+    <section class="reviews">
+      <h2>Lo que dicen nuestros visitantes</h2>
+      <div id="reviewContainer"></div>
+    </section>
+
+    <section class="reservations">
+      <h2>Reservaciones recientes</h2>
+      <div id="reservationList"></div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

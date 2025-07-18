@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Georgia', serif;
+  background: url('images/sarias_river.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.65);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 3rem;
+  color: #FFD700;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #f0f0f0;
+}
+
+.suites {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.suite-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.suite-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  max-width: 250px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.suite-card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.form-section {
+  text-align: center;
+  margin: 2rem auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+form input, form select, form button {
+  padding: 0.8rem;
+  width: 300px;
+  border: none;
+  border-radius: 8px;
+}
+
+form button {
+  background-color: #FFD700;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background-color: #e0be00;
+}
+
+.reviews, .reservations {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+#reviewContainer, #reservationList {
+  margin-top: 1rem;
+  display: grid;
+  gap: 1rem;
+  justify-content: center;
+}

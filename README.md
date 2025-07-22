@@ -1,12 +1,12 @@
 # 🎕️ Saria's River – Glamping de Lujo en Costa Rica
 
-**Saria's River** es una aplicación web que simula el sitio de un hotel de glamping exclusivo para parejas, ubicado en Buenos Aires, Puntarenas, Costa Rica.
+**Saria's River** es una aplicación web que simula el sitio de un hotel de glamping exclusivo para parejas, ubicado en Buenos Aires, Puntarenas, Costa Rica. Fue desarrollada como proyecto educativo integrando HTML, CSS, JavaScript, FastAPI y una base de datos MySQL.
 
 ---
 
 ## 📁 Estructura del Proyecto
 
-```
+```bash
 hotel_sarias_river/
 ├── backend/
 │   ├── main.py
@@ -20,11 +20,12 @@ hotel_sarias_river/
 │   ├── index.html
 │   ├── styles.css
 │   ├── script.js
+│   ├── reseñas.json
 │   └── images/
 │       ├── sarias_river.png
 │       ├── suit_monteverde.png
 │       ├── suit_yiguirro.png
-│       └── master_suit_jagar.png
+│       └── master_suit_jaguar.png
 │
 └── sql/
     └── create_tables.sql
@@ -46,8 +47,6 @@ hotel_sarias_river/
 * FastAPI
 * SQLAlchemy
 * MySQL Connector
-* Rust (para compilar dependencias de Pydantic)
-* Cargo (administrador de paquetes de Rust)
 
 ### Base de Datos
 
@@ -55,7 +54,7 @@ hotel_sarias_river/
 
 ### API Externa
 
-* JSONPlaceholder (para simular reseñas de visitantes)
+* **Mockaroo** (para simular reseñas de visitantes en español)
 
 ---
 
@@ -64,7 +63,7 @@ hotel_sarias_river/
 ### 1. Clonar el Repositorio
 
 ```bash
-git clone https://github.com/tu_usuario/sarias-river.git
+git clone https://github.com/sklinderton/sarias-river.git
 cd hotel_sarias_river
 ```
 
@@ -79,17 +78,30 @@ venv\Scripts\activate        # En Windows
 pip install -r requirements.txt
 ```
 
-### 3. Crear la Base de Datos
+### 3. Configurar credenciales de MySQL
 
-Ejecutar el script SQL:
+Abre el archivo `backend/database.py` y modifica las siguientes líneas con tu propia contraseña de MySQL:
 
-```bash
-mysql -u tu_usuario -p < ../sql/create_tables.sql
+```python
+def init_db():
+    try:
+        # Conexión temporal sin especificar base de datos
+        temp_conn = mysql.connector.connect(
+            host="localhost",
+            user="root",
+            password="TU_CONTRASENA"
+        )
 ```
 
-O ingresar manualmente a MySQL y copiar el contenido.
+Y también modifica esta otra línea:
 
-### 4. Ejecutar el Backend
+```python
+SQLALCHEMY_DATABASE_URL = "mysql+mysqlconnector://root:TU_CONTRASENA@localhost/sarias_river"
+```
+
+Reemplaza `TU_CONTRASENA` por la contraseña correspondiente a tu usuario de MySQL.
+
+### 5. Ejecutar el Backend
 
 ```bash
 uvicorn main:app --reload
@@ -100,7 +112,7 @@ Disponible en:
 * API: `http://localhost:8000`
 * Documentación Swagger: `http://localhost:8000/docs`
 
-### 5. Abrir el Frontend
+### 6. Abrir el Frontend
 
 Abre el archivo:
 
@@ -122,7 +134,7 @@ con doble clic o arrástralo al navegador.
   * **Master Jaguar** (\$900 por noche, incluye spa)
 * Formulario de reservación para parejas.
 * Visualización de reservas desde la base de datos.
-* Reseñas simuladas desde JSONPlaceholder.
+* Reseñas simuladas en español consumidas desde archivo JSON generado con Mockaroo.
 
 ---
 
@@ -130,14 +142,13 @@ con doble clic o arrástralo al navegador.
 
 * Python 3.11+
 * MySQL 8.x
-* Rust + Cargo (para compilar dependencias en Python 3.13)
 * Navegador moderno (Chrome, Firefox, Edge)
 
 ---
 
-## 💬 Autor
+## 💬 Autores
 
-Proyecto desarrollado por \*\*Jason Barrantes, Melany Ramírez, Junior Ramírez, Jasser Palacios\*\*
+Proyecto desarrollado por **Jason Barrantes, Melany Ramírez, Junior Ramírez y Jasser Palacios**
 
 Lead University — Proyecto Web Personalizado con HTML, CSS, JS y FastAPI
 
@@ -145,4 +156,5 @@ Lead University — Proyecto Web Personalizado con HTML, CSS, JS y FastAPI
 
 ## 📃 Licencia
 
-Este proyecto es de uso académico. No está autorizado para fines comerciales sin permiso.
+Este proyecto es de uso académico. No está autorizado para fines comerciales sin permiso del equipo desarrollador.
+

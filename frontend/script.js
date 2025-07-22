@@ -1,16 +1,22 @@
 // Consumir reseñas (JSONPlaceholder)
-fetch('https://jsonplaceholder.typicode.com/comments?_limit=5')
+fetch('https://raw.githubusercontent.com/sklinderton/Hotel-Saria-s-River/refs/heads/main/frontend/reseñas.json')
   .then(res => res.json())
   .then(data => {
     const container = document.getElementById('reviewContainer');
     data.forEach(r => {
       container.innerHTML += `
         <div style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: 8px;">
-          <h4>${r.name}</h4>
-          <p>${r.body}</p>
+          <h4>${r.nombre}</h4>
+          <p>${r.comentario}</p>
+          <p>⭐ ${r.calificacion} estrellas</p>
         </div>`;
     });
+  })
+  .catch(err => {
+    console.error("Error al cargar las reseñas:", err);
   });
+
+
 
 // Enviar reservación
 document.getElementById('reservationForm').addEventListener('submit', async (e) => {
